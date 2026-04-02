@@ -95,7 +95,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'role-view',
             'role-edit',
             'role-delete',
-            // 'role-restore',
+            'role-restore',
 
             // User management
             'user-list',
@@ -103,17 +103,16 @@ class RolesAndPermissionsSeeder extends Seeder
             'user-view',
             'user-edit',
             'user-delete',
-            // 'user-restore',
+            'user-restore',
             'user-status',
             'user-direct_permission',
-            'user-impersonate',
-            'user-change_password',
+            // 'user-impersonate',
+            // 'user-change_password',
 
             // Permission management
             'permission-list',
             'permission-view',
             'permission-delete',
-            // 'permission-restore',
 
             // Status management
             'status-list',
@@ -121,51 +120,19 @@ class RolesAndPermissionsSeeder extends Seeder
             'status-view',
             'status-edit',
             'status-delete',
-            // 'status-restore',
+            'status-restore',
 
             // Country management
             'country-list',
             'country-view',
             'country-delete',
-            // 'country-restore',
+            'country-restore',
 
             // State management
             'state-list',
             'state-view',
             'state-delete',
-            // 'state-restore',
-
-            // Lead management
-            'lead-list',
-            'lead-view',
-            'lead-create',
-            'lead-edit',
-            'lead-delete',
-            'lead-import',
-            // 'lead-restore',
-            'lead-status',
-            'lead-assign',
-            'lead-assignees',
-            'lead-history',
-            'lead-meetings',
-            'lead-note',
-
-            // Lead Report management
-            'lead_report-list',
-
-            // Source management
-            'source-list',
-            'source-create',
-            'source-view',
-            'source-edit',
-            'source-delete',
-            // 'source-restore',
-
-            // Log Activity management
-            'log_activity-list',
-            'log_activity-view',
-            'log_activity-delete',
-            // 'log_activity-restore',
+            'state-restore',
 
             // Attachment management
             'attachment-list',
@@ -173,26 +140,8 @@ class RolesAndPermissionsSeeder extends Seeder
             'attachment-view',
             'attachment-edit',
             'attachment-delete',
-            // 'attachment-restore',
+            'attachment-restore',
             'attachment-download',
-
-            //Campaign management
-            'campaign-list',
-            'campaign-create',
-            'campaign-view',
-            'campaign-edit',
-            'campaign-delete',
-            // 'campaign-restore',
-            'campaign-status',
-
-            //Lead Capture management
-            'lead_capture-list',
-            'lead_capture-create',
-            'lead_capture-view',
-            'lead_capture-edit',
-            'lead_capture-delete',
-            // 'lead_capture-restore',
-            'lead_capture-status',
 
             //Faq management
             'faq-list',
@@ -200,7 +149,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'faq-view',
             'faq-edit',
             'faq-delete',
-            // 'faq-restore',
+            'faq-restore',
             'faq-status',
 
             //Notification management
@@ -212,16 +161,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'activity_log-list',
             'activity_log-view',
             'activity_log-delete',
-
-            //Meeting management
-            'meeting-list',
-            'meeting-create',
-            'meeting-view',
-            'meeting-edit',
-            'meeting-delete',
-            // 'meeting-restore',
-            'meeting-status',
-            'meeting-reschedule',
+            'activity_log-restore',
         ];
 
         return $generalPermissions;
