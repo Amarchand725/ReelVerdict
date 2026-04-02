@@ -169,7 +169,7 @@ class MakeModuleCommand extends Command
             ->map(function ($field) {
                 [$name, $type] = explode(':', $field);
                 if ($name === 'id') return "\$table->id();";
-                if ($name === 'uuid') return "\$table->uuid('uuid')->unique();";
+                if ($name === 'slug') return "\$table->string('slug')->unique();";
                 if ($name === 'status_id') return "\$table->foreignId('status_id')->nullable()->constrained('statuses')->nullOnDelete();";
                 return "\$table->{$type}('{$name}')->nullable();";
             })
