@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Permission\Models\Role as SpatieRole;
+use App\Models\Traits\ModelTrait;
 
 #[Fillable(['name', 'guard_name', 'created_at', 'updated_at'])]
 class Role extends SpatieRole
 {
-    use SoftDeletes;
+    use SoftDeletes, ModelTrait;
 }

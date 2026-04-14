@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('slug')->unique();
+            $table->uuid()->unique()->index();
             $table->foreignId('author_id')->nullable()->constrained('users')->nullOnDelete();
             $table->foreignId('status_id')->nullable()->constrained('statuses')->nullOnDelete();
+            $table->foreignId('avatar_id')->nullable();
             $table->string('name');
             $table->string('email')->unique();
             $table->string('phone', 20)->nullable();
@@ -26,6 +27,7 @@ return new class extends Migration
             $table->enum('two_factor', array_column(NotificationTypeEnum::cases(), 'value'))->nullable();
             $table->enum('notification', array_column(NotificationTypeEnum::cases(), 'value'))->nullable();
             $table->timestamp('email_verified_at')->nullable();
+            $table->timestamp('phone_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

@@ -60,27 +60,58 @@ trait ModelTrait
         return $query;
     }
 
-    protected static function boot()
+    protected static function booted()
     {
-        parent::boot();
-        if (Schema::hasColumn((new self)->getTable(), 'uuid')) {
+        $model = new static;
+        $table = $model->getTable();
+        
+        if (Schema::hasColumn($table, 'uuid')) {
             static::creating(function ($model) {
                 $model->uuid = Str::uuid();
             });
         }
+        if (Schema::hasColumn($table, 'slug')) {
+            static::creating(function ($model) {
+                $model->slug = Str::slug($model->name) . '-' . $model->slugNum;
+            });
+        }
 
-        if (Schema::hasColumn((new self())->getTable(), 'author_id')) {
+        if (Schema::hasColumn($table, 'author_id')) {
             static::creating(function ($model) {
                 $auth = Auth::user();
-                if(!$auth){
-                    $auth = User::find(1);
+
+                if (!$auth) {
+                    $auth = User::query()->find(1) ?? null; // Fallback to user with ID 1 if no authenticated user  
                 }
+
                 if ($auth) {
                     $model->author_id = $auth->id;
                 }
             });
         }
     }
+
+    // protected static function boot()
+    // {
+    //     parent::boot();
+    //     if (Schema::hasColumn((new static)->getTable(), 'uuid')) {
+    //         static::creating(function ($model) {
+    //             $model->uuid = Str::uuid();
+    //         });
+    //     }
+
+    //     if (Schema::hasColumn((new static())->getTable(), 'author_id')) {
+    //         static::creating(function ($model) {
+    //             $auth = Auth::user();
+    //             if(!$auth){
+    //                 $auth = User::find(1);
+    //             }
+    //             if ($auth) {
+    //                 $model->author_id = $auth->id;
+    //             }
+    //         });
+    //     }
+    // }
 
     public function attachments()
     {

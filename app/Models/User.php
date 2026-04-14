@@ -10,13 +10,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
+use App\Models\Traits\ModelTrait;
 
-#[Fillable(['name', 'email', 'password'])]
+#[Fillable(['status_id', 'avatar_id', 'name', 'email', 'password', 'phone', 'gender', 'dob', 'two_factor', 'notification', 'email_verified_at', 'email_verified_at'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
-    use HasFactory, Notifiable, HasRoles;
+    use HasFactory, Notifiable, HasRoles, ModelTrait;
 
     /**
      * Get the attributes that should be cast.
